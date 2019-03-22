@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201903221512509_AddJobsTable.Designer.cs">
       <DependentUpon>201903221512509_AddJobsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903221642125_DeleteRequiredFieldimage.cs" />
+    <Compile Include="Migrations\201903221642125_DeleteRequiredFieldimage.Designer.cs">
+      <DependentUpon>201903221642125_DeleteRequiredFieldimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -258,6 +262,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903211530587_InitialCreate.resx">
@@ -271,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903221512509_AddJobsTable.resx">
       <DependentUpon>201903221512509_AddJobsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903221642125_DeleteRequiredFieldimage.resx">
+      <DependentUpon>201903221642125_DeleteRequiredFieldimage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

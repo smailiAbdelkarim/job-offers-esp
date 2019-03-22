@@ -75,3 +75,4 @@ C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\bin\fr\EntityFramew
 C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\bin\fr\EntityFramework.SqlServer.resources.dll
 C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.AddCategoryTable.resources
 C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.AddJobsTable.resources
+C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.DeleteRequiredFieldimage.resources

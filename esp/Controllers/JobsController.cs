@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using esp.Models;
 using esp_test.Models;
-
+using System.IO;
 namespace esp.Controllers
 {
     public class JobsController : Controller
@@ -49,11 +49,14 @@ namespace esp.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,JobName,JobDescription,JobPlace,JobImage,CategoryId")] Job job)
+        public ActionResult Create(Job job,HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // test if has no error
             {
-                db.Jobs.Add(job);
+                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+                upload.SaveAs(path); //save image in server
+                job.JobImage = upload.FileName; //save image in database
+                db.Jobs.Add(job);   // add job to job table
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -83,7 +86,7 @@ namespace esp.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,JobName,JobDescription,JobPlace,JobImage,CategoryId")] Job job)
+        public ActionResult Edit(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {

@@ -44,7 +44,9 @@
             @Html.DisplayFor(modelItem => item.JobPlace)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JobImage)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.JobImage)"
+                 class="thumbnail"
+                 style="width:80px;height:80px"/>
         </td>
         <td style="width:250px">
 

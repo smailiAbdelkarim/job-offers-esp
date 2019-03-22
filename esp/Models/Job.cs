@@ -19,11 +19,11 @@ namespace esp.Models
         [Required]
         [DisplayName("workplace")]
         public string JobPlace { get; set; }
-        [Required]
+        
         [DisplayName("Image")]
         public string JobImage { get; set; }
         [DisplayName("Job category")]
         public int CategoryId { get; set; } // each job has category id
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

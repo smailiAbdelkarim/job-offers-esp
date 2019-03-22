@@ -13,12 +13,12 @@
 
 <div>
     
-    <dl class="dl-horizontal" style="width:500px;margin-top:25px;background-color:darkseagreen">
-        <dt>
+    <dl class="dl-horizontal" style="width:500px;margin-top:25px">
+        <dt style="margin-top:20px">
             @Html.DisplayNameFor(model => model.Category.CategoryName)
         </dt>
 
-        <dd>
+        <dd style="margin-top:20px">
             @Html.DisplayFor(model => model.Category.CategoryName)
         </dd>
 
@@ -51,7 +51,8 @@
         </dt>
 
         <dd style="margin-top:20px">
-            @Html.DisplayFor(model => model.JobImage)
+           <img src="~/Uploads/@Html.DisplayFor(model=>model.JobImage)" class="thumbnail"
+                style="width:48px;height:48px"/>
         </dd>
 
     </dl>
