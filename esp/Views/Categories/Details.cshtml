@@ -1,0 +1,37 @@
+﻿@model esp.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="titres">Details</h2>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div>
+   
+    <dl class="dl-horizontal" style="width:500px;margin-top:25px;background-color:darkseagreen">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+       
+        <dt style="margin-top:20px">
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </dt>
+
+        <dd style="margin-top:20px">
+            @Html.DisplayFor(model => model.CategoryDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")|
+    @Html.ActionLink("Edit", "Edit", "Categories", new { id = Model.Id }, new { @class = "btn btn-success btn-md" })
+    
+</p>

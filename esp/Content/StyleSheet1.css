@@ -1,0 +1,131 @@
+﻿
+.navbar-default {
+    background-color :black;
+    border-color: #e5e5e5;
+   
+
+}
+.navbar-default .navbar-nav>li>a {
+    color :white;
+    font-size:17px;
+    font-family : Arial;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color :azure;
+    
+ 
+}
+body {
+    padding-top:67px;
+    font-family:Arial;
+}
+
+.nav>li{
+    position : relative;
+    display : block;
+    height : 75px;
+    padding-top : 10px;
+}
+.myfooter{
+    background-color : #E0E0E0;
+    padding : 10px;
+    font-family :  Arial, Helvetica, sans-serif;
+    text-align : justify;
+    height:205px;
+     bottom: 0;
+     position: relative;
+   
+    
+    
+}
+.myfooter a{
+    color : black;
+}
+.myfooter h3 ul{
+    font-family: Arial;
+    margin-bottom: 20px;
+    
+}
+.subfooter{
+    background-color : black;
+    color : white;
+    padding : 10px;
+    font-size:17px;
+    
+    
+
+   text-align : center;
+}
+
+.connexion {
+   text-align:center;
+   margin-top:50px;
+   color:#0c5c82;
+   font-size:50px;
+   font-family:Arial;
+}
+/*
+   Les titres (h1)
+ */
+.titres{
+   font-family:Arial;
+   font-size:50px;
+   color:dimgray;
+   text-align:center;
+   margin-top:50px;
+
+}
+/*
+    designe of table jobs 
+
+*/
+.main-table tr:first-child th {
+    background-color:#333;
+    color:#FFF;
+}
+.main-table td {
+   background-color:#FFF;   
+   vertical-align:middle !important;
+}
+.main-table th {
+ 
+   vertical-align:middle !important;
+}
+.main-table #btn {
+    padding:3px 10px;
+}
+
+#detail {
+    margin-top:5px;
+    padding:3px 10px;
+}
+#save{
+    width:200px;
+}
+#edit-detail {
+   width:120px;
+}
+/*
+     designe of details
+
+*/
+
+.detail-designe {
+   font-family:Arial;
+   color:black;
+   font-size:22px;
+}
+.detail-info {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color:#52697c;
+   font-size:22px;
+}
+
+/*  btn sign in */
+#buttons{
+    font-size:16px;
+   padding: 10px 24px;
+   border-radius: 4px;
+   
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

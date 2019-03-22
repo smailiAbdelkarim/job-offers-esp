@@ -1,0 +1,64 @@
+﻿@model esp.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="titres">Details</h2>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<div>
+    
+    <dl class="dl-horizontal" style="width:500px;margin-top:25px;background-color:darkseagreen">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt style="margin-top:20px">
+            @Html.DisplayNameFor(model => model.JobName)
+        </dt>
+
+        <dd style="margin-top:20px">
+            @Html.DisplayFor(model => model.JobName)
+        </dd>
+
+        <dt style="margin-top:20px">
+            @Html.DisplayNameFor(model => model.JobDescription)
+        </dt>
+
+        <dd style="margin-top:20px">
+            @Html.DisplayFor(model => model.JobDescription)
+        </dd>
+
+        <dt style="margin-top:20px">
+            @Html.DisplayNameFor(model => model.JobPlace)
+        </dt>
+
+        <dd style="margin-top:20px">
+            @Html.DisplayFor(model => model.JobPlace)
+        </dd>
+
+        <dt style="margin-top:20px">
+            @Html.DisplayNameFor(model => model.JobImage)
+        </dt>
+
+        <dd style="margin-top:20px">
+            @Html.DisplayFor(model => model.JobImage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")|
+    @Html.ActionLink("Edit", "Edit", "Jobs", new { id = Model.Id }, new { @class = "btn btn-success btn-md" })
+    
+</p>
