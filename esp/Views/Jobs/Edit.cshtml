@@ -10,11 +10,20 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;
 </p>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
+        <div class="alert alert-danger" id="error-div" style="display:none">
+         <span id="view-err">
+
+         </span>
+
+        </div>
+
+
+
         
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -46,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.JobImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.JobImage, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="file" name="upload" id="JobImage" />
                 @Html.ValidationMessageFor(model => model.JobImage, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -62,7 +71,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-success btn-md"
-                       style="width:160px" />
+                       style="width:160px" id="save" />
             </div>
         </div>
     </div>
@@ -71,3 +80,21 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+@section scripts{
+    
+    <script>
+    $(function () { // principal function
+        $("#save").click(function () {
+            if ($("#JobImage").val() == "") { // whene image is empty
+                $("#error-div").fadeIn();
+                $("#view-err").append("Please select a photo");
+               
+                return false;
+
+            }
+        });
+    });
+</script>
+    
+    }
