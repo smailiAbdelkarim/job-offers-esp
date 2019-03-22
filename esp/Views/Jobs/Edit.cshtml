@@ -27,6 +27,7 @@
         
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.JobImage)
 
         <div class="form-group">
             @Html.LabelFor(model => model.JobName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -55,7 +56,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.JobImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="upload" id="JobImage" />
+                <input type="file" name="upload" id="myImage" />
                 @Html.ValidationMessageFor(model => model.JobImage, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -86,12 +87,30 @@
     <script>
     $(function () { // principal function
         $("#save").click(function () {
-            if ($("#JobImage").val() == "") { // whene image is empty
+            //check if the input is empty
+            if ($("#myImage").val() == "") {
                 $("#error-div").fadeIn();
-                $("#view-err").append("Please select a photo");
-               
+                $("#view-err").append("Please select an image");
                 return false;
+            }
+            if ($("#myImage").val() != "") {
+                //check if the image extention is valid
+                var fileName = document.getElementById("myImage").value;
+                var extensionImg = fileName.substr(fileName.lastIndexOf('.') + 1);
+                var validExtention = ['png', 'jpg', 'bmp'];
+                if ($.inArray(extensionImg, validExtention) == -1) {
+                    $("#error-div").fadeIn();
+                    $("#view-err").append("Please select an image with valid extension");
+                    return false;
+                }
 
+                //check if the image size is valid (3mb)
+                var myFileSize = document.getElementById("myImage").files[0].size / 1024 / 1024;
+                if (myFileSize > 3) {
+                    $("#error-div").fadeIn();
+                    $("#view-err").append("Please select an image less then 3 MB");
+                    return false;
+                }
             }
         });
     });

@@ -90,7 +90,7 @@ namespace esp.Controllers
         {
             if (ModelState.IsValid)
             {
-                string oldPath = job.JobImage;
+                string oldPath = Path.Combine(Server.MapPath("~/Uploads"), job.JobImage);
                 if (upload != null) {
                     System.IO.File.Delete(oldPath);
                     string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
