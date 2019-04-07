@@ -72,10 +72,18 @@ namespace esp_test.Controllers
                        join job in db.Jobs
                        on app.JobId equals job.Id
                        where job.UserID == UserID 
-
-
                        select app;
-            return View(Jobs.ToList());
+
+            var grouped = from j in Jobs
+                          group j by j.job.JobName
+                         into gr
+                          select new JobsViewModel
+                          {
+                              JobTitle = gr.Key,
+                             Items = gr
+                         };
+
+            return View(grouped.ToList());
 
         }
         [Authorize]

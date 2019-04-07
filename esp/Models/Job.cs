@@ -28,5 +28,6 @@ namespace esp.Models
         public int CategoryId { get; set; } // each job has category id
         public virtual ApplicationUser User { get; set; }
         public virtual Category Category { get; set; }
+        public object JobTitle { get; internal set; }
     }
 }
