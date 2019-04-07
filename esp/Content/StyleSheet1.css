@@ -132,3 +132,15 @@ body {
 .panels{
     background-color:black;
 }
+#searchName {
+    width: 190px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    
+   transition:width 0.4s ease-in-out;
+}
+#searchName:focus{
+    width:100%;
+
+}
