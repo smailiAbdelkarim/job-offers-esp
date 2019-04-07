@@ -58,9 +58,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                          <input type="text" name="searchName" id="searchName" placeholder="Search here..." />
-                        </a>
+                        @using (Html.BeginForm("Search","Home",FormMethod.Post))
+                        {
+                            <input type="text" name="searchName" id="searchName" placeholder="Search here..." />
+                        }
+
+                         
+                       
+
                     </li>
 
 
