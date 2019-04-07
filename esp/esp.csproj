@@ -178,6 +178,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -202,12 +203,26 @@
     <Compile Include="Migrations\201903221642125_DeleteRequiredFieldimage.Designer.cs">
       <DependentUpon>201903221642125_DeleteRequiredFieldimage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904011439085_editDatatype.cs" />
+    <Compile Include="Migrations\201904011439085_editDatatype.Designer.cs">
+      <DependentUpon>201904011439085_editDatatype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904031504597_AddApplyForJobTable.cs" />
+    <Compile Include="Migrations\201904031504597_AddApplyForJobTable.Designer.cs">
+      <DependentUpon>201904031504597_AddApplyForJobTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904051055460_AddUserfilesToJobTable.cs" />
+    <Compile Include="Migrations\201904051055460_AddUserfilesToJobTable.Designer.cs">
+      <DependentUpon>201904051055460_AddUserfilesToJobTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplyForJob.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -252,6 +267,17 @@
     <Content Include="Views\Jobs\Details.cshtml" />
     <Content Include="Views\Jobs\Edit.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Apply.cshtml" />
+    <Content Include="Views\Home\GetJobsByUser.cshtml" />
+    <Content Include="Views\Home\DetailsOfJobs.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\GetJobsByPublisher.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -279,6 +305,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903221642125_DeleteRequiredFieldimage.resx">
       <DependentUpon>201903221642125_DeleteRequiredFieldimage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904011439085_editDatatype.resx">
+      <DependentUpon>201904011439085_editDatatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904031504597_AddApplyForJobTable.resx">
+      <DependentUpon>201904031504597_AddApplyForJobTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904051055460_AddUserfilesToJobTable.resx">
+      <DependentUpon>201904051055460_AddUserfilesToJobTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

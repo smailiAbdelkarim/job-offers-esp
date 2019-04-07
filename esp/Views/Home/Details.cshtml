@@ -1,0 +1,61 @@
+﻿@model esp.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<h2 class="titres">Details</h2>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+    <dl class="dl-horizontal" style="background-color:beige">
+        <dt style="font-size:18px;width:181px;margin-right:13px" >
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd style="font-size:18px;width:300px" >
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt style="font-size:18px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.JobName)
+        </dt>
+
+        <dd style="font-size:18px;width:300px"  >
+            @Html.DisplayFor(model => model.JobName)
+        </dd>
+
+        <dt style="font-size:18px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.JobDescription)
+        </dt>
+
+        <dd style="font-size:18px;width:300px"  >
+            @Html.DisplayFor(model => model.JobDescription)
+        </dd>
+
+        <dt style="font-size:18px;width:181px;margin-right:13px" >
+            @Html.DisplayNameFor(model => model.JobPlace)
+        </dt>
+
+        <dd style="font-size:18px;width:300px" >
+            @Html.DisplayFor(model => model.JobPlace)
+        </dd>
+
+        <dt style="font-size:18px;width:181px;margin-right:13px" >
+            @Html.DisplayNameFor(model => model.JobImage)
+        </dt>
+
+        <dd style="font-size:18px;width:300px"  >
+            <img src="~/Uploads/@Html.DisplayFor(model=>model.JobImage)" class="thumbnail"
+                 style="width:180px;height:128px" />
+        </dd>
+
+    </dl>
+
+<p>
+ 
+@Html.ActionLink("Apply to job", "Apply", "Home", new { id = Model.Id }, new { @class = "btn btn-success btn-md" })|
+    @Html.ActionLink("Back to List", "Index")
+</p>

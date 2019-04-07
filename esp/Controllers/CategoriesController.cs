@@ -11,11 +11,13 @@ using esp_test.Models;
 
 namespace esp.Controllers
 {
+    [Authorize (Roles ="Admins")]
     public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Categories
+       
         public ActionResult Index()
         {
             return View(db.Categories.ToList());

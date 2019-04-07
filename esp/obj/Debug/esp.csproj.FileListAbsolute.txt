@@ -76,3 +76,6 @@ C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\bin\fr\EntityFramew
 C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.AddCategoryTable.resources
 C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.AddJobsTable.resources
 C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.DeleteRequiredFieldimage.resources
+C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.editDatatype.resources
+C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.AddApplyForJobTable.resources
+C:\Users\karim\documents\visual studio 2015\Projects\esp\esp\obj\Debug\esp.Migrations.AddUserfilesToJobTable.resources

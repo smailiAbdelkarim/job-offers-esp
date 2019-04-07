@@ -1,0 +1,50 @@
+﻿@model esp.Models.ApplyForJob
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="titres">Delete</h2>
+
+<h3 style="color:red;font-size:25px">Are you sure you want to delete this?</h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div>
+   
+    <dl class="dl-horizontal" style="background-color:antiquewhite">
+        <dt style="font-size:22px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.job.JobName)
+        </dt>
+
+        <dd  style="font-size:22px;width:300px">
+            @Html.DisplayFor(model => model.job.JobName)
+        </dd>
+
+
+        <dt style="font-size:22px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd  style="font-size:22px;width:300px">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt style="font-size:22px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.ApplyDate)
+        </dt>
+
+        <dd >
+            @Html.DisplayFor(model => model.ApplyDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger btn-md" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

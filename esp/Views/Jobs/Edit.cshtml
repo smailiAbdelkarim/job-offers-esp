@@ -88,11 +88,7 @@
     $(function () { // principal function
         $("#save").click(function () {
             //check if the input is empty
-            if ($("#myImage").val() == "") {
-                $("#error-div").fadeIn();
-                $("#view-err").append("Please select an image");
-                return false;
-            }
+           
             if ($("#myImage").val() != "") {
                 //check if the image extention is valid
                 var fileName = document.getElementById("myImage").value;

@@ -1,0 +1,49 @@
+﻿@model esp.Models.ApplyForJob
+
+@{
+    ViewBag.Title = "DetailsOfJobs";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="titres">Details of your apply</h2>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<div>
+    
+    <dl class="dl-horizontal" style="background-color:beige">
+        <dt style="font-size:22px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.job.JobName)
+        </dt>
+
+        <dd style="font-size:22px;width:250px">
+            @Html.DisplayFor(model => model.job.JobName)
+        </dd>
+
+        
+
+        <dt style="font-size:22px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd style="font-size:22px;width:250px">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt style="font-size:22px;width:181px;margin-right:13px">
+            @Html.DisplayNameFor(model => model.ApplyDate)
+        </dt>
+
+        <dd style="font-size:22px;width:250px">
+            @Html.DisplayFor(model => model.ApplyDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "GetJobsByUser")
+
+</p>

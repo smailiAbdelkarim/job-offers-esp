@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using esp.Models;
 
 namespace esp_test.Models
 {
@@ -10,6 +12,8 @@ namespace esp_test.Models
     public class ApplicationUser : IdentityUser
     {
         public string UserType { get; set; }
+        public virtual ICollection<Job> jobs { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Notez qu'authenticationType doit correspondre à l'élément défini dans CookieAuthenticationOptions.AuthenticationType
@@ -34,5 +38,9 @@ namespace esp_test.Models
         public System.Data.Entity.DbSet<esp.Models.Category> Categories { get; set; }
 
         public System.Data.Entity.DbSet<esp.Models.Job> Jobs { get; set; }
+
+        public System.Data.Entity.DbSet<esp.Models.ApplyForJob> ApplyForJobs { get; set; }
+
+  
     }
 }

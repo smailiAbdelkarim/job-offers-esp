@@ -9,8 +9,11 @@ using System.Web.Mvc;
 using esp.Models;
 using esp_test.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
+
 namespace esp.Controllers
 {
+    [Authorize]
     public class JobsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -21,6 +24,7 @@ namespace esp.Controllers
             var jobs = db.Jobs.Include(j => j.Category);
             return View(jobs.ToList());
         }
+      
 
         // GET: Jobs/Details/5
         public ActionResult Details(int? id)
@@ -56,6 +60,7 @@ namespace esp.Controllers
                 string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
                 upload.SaveAs(path); //save image in server
                 job.JobImage = upload.FileName; //save image in database
+                job.UserID = User.Identity.GetUserId();
                 db.Jobs.Add(job);   // add job to job table
                 db.SaveChanges();
                 return RedirectToAction("Index");

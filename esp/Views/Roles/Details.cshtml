@@ -1,0 +1,31 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+
+<h2 class="titres">Details</h2>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<div>
+    
+    <dl class="dl-horizontal" style="width:500px;margin-top:25px">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+
+   
+    @Html.ActionLink("Edit", "Edit", "Roles", new { id = Model.Id }, new { @class = "btn btn-success btn-md" })|
+    @Html.ActionLink("Back to List", "Index")
+
+
+</p>
