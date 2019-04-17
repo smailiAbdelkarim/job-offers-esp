@@ -87,6 +87,34 @@ namespace esp_test.Models
         [Compare("Password", ErrorMessage = "password and confirm password not match.")]
         public string ConfirmPassword { get; set; }
     }
+    public class EditViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+        [DisplayName("Username")]
+        public string Username { get; set; }
+        
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        [Required]
+        [StringLength(100, ErrorMessage = "String {0} contain at least {2} characters", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = " current password")]
+        public string CurrentPassword { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "String {0} contain at least {2} characters", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = " New password")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "confirm new password ")]
+        [Compare("NewPassword", ErrorMessage = "password and confirm password not match")]
+        public string ConfirmNewPassword { get; set; }
+    }
 
     public class ResetPasswordViewModel
     {

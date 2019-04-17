@@ -24,7 +24,7 @@ namespace esp_test.Controllers
             db = new ApplicationDbContext();
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -36,9 +36,9 @@ namespace esp_test.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -122,7 +122,7 @@ namespace esp_test.Controllers
             // Si un utilisateur entre des codes incorrects pendant un certain intervalle, le compte de cet utilisateur 
             // est alors verrouillé pendant une durée spécifiée. 
             // Vous pouvez configurer les paramètres de verrouillage du compte dans IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -141,7 +141,7 @@ namespace esp_test.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(db.Roles.Where(a=>!a.Name.Contains("Administrators")).ToList(), "Name", "Name");
+            ViewBag.UserType = new SelectList(db.Roles.Where(a => !a.Name.Contains("Administrators")).ToList(), "Name", "Name");
             return View();
         }
 
@@ -154,12 +154,12 @@ namespace esp_test.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.UserType = new SelectList(db.Roles,"Name","Name");
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email ,UserType=model.UserType};
+                ViewBag.UserType = new SelectList(db.Roles, "Name", "Name");
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email, UserType = model.UserType };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
                     // Envoyer un message électronique avec ce lien
@@ -175,6 +175,43 @@ namespace esp_test.Controllers
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
             return View(model);
         }
+
+        public ActionResult EditProfile()
+        {
+            var UserId = User.Identity.GetUserId();
+            var user = db.Users.Where(a => a.Id == UserId).SingleOrDefault();
+            EditViewModel profile = new EditViewModel();
+            profile.Username = user.UserName;
+            profile.Email = user.Email;
+            return View(profile);
+        }
+        [HttpPost]
+        public ActionResult EditProfile(EditViewModel profile)
+        {
+            var UserId = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserId).SingleOrDefault();
+            if (!UserManager.CheckPassword(CurrentUser, profile.CurrentPassword))
+            {
+                ViewBag.message = "current password not correct";
+            }
+            else {
+                var newPasswordHash = UserManager.PasswordHasher.HashPassword(profile.NewPassword);
+                CurrentUser.UserName = profile.Username;
+                CurrentUser.Email = profile.Email;
+                CurrentUser.PasswordHash = newPasswordHash;
+                db.Entry(CurrentUser).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.message = "update completed successfully ";
+            }
+
+
+            return View(profile);
+
+        }
+
+
+
+
 
         //
         // GET: /Account/ConfirmEmail

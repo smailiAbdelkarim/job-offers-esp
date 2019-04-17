@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -126,13 +128,36 @@ namespace esp_test.Controllers
 
             return View();
         }
-
+        [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+          
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Contact(ContactModel contact)
+        {
+            var mail = new MailMessage();
+            var loginInfo = new NetworkCredential("abdelkarimsmaili3@gmail.com","gll44g2q52egll44g2q52e");
+            mail.From = new MailAddress(contact.Email);
+            mail.To.Add(new MailAddress("abdelkarimsmaili709@gmail.com"));
+            mail.Subject = contact.Subject;
+            mail.Body = contact.Message;
+            var smtpClient = new SmtpClient("smtp.gmail.com",587);
+            smtpClient.EnableSsl = true;
+            smtpClient.Credentials = loginInfo;
+            smtpClient.Send(mail);
+
+
+            return View();
+        }
+
+
+
+
+
+
         public ActionResult Search() {
             return View();
         }

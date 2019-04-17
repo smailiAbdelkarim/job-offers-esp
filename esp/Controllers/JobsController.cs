@@ -22,8 +22,12 @@ namespace esp.Controllers
         public ActionResult Index()
         {
             var jobs = db.Jobs.Include(j => j.Category);
-            return View(jobs.ToList());
+           return View(jobs.ToList());
+           
+     
+
         }
+   
       
 
         // GET: Jobs/Details/5

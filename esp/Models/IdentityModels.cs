@@ -41,6 +41,6 @@ namespace esp_test.Models
 
         public System.Data.Entity.DbSet<esp.Models.ApplyForJob> ApplyForJobs { get; set; }
 
-  
+      
     }
 }

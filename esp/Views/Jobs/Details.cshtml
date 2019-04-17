@@ -35,7 +35,8 @@
         </dt>
 
         <dd style="margin-top:20px">
-            @Html.DisplayFor(model => model.JobDescription)
+            @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.JobDescription).ToString()))
+           
         </dd>
 
         <dt style="margin-top:20px">

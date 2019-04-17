@@ -1,20 +1,52 @@
 ﻿@using Microsoft.AspNet.Identity
-
+@using esp_test.Models;
 @if (Request.IsAuthenticated) // si l'utilisateur est authentifié.
 {
 
     // Deconnecter par l'action logOff par id = logoff
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoff" }))
     {
-        @Html.AntiForgeryToken(); <!-- contre cross request forgery(attaque)-->
+        var db = new ApplicationDbContext();
+        var UserID = User.Identity.GetUserId();
+        var currentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+        @Html.AntiForgeryToken()<!-- contre cross request forgery(attaque)-->
+
+
+
+
+
+
         <ul class="nav navbar-nav navbar-right">
+          <li class="menu">
+              
+              <a href="#" style="color:white" > <strong><span class="glyphicon glyphicon-user"></span> @currentUser.UserName</strong> 
+                 
+              </a>
+              
+              <ul class="submenu">
+                  @if (currentUser.UserType == "publishers")
+                  {
+                    <li style="margin-top:0.5px"><div class="mydiv"><a href="~/home/GetJobsByPublisher">jobs that you posted</a></div></li>
+                    <li style="margin-top:0.5px"><div class="mydiv" style="margin-top:0.5px"><a href="~/Jobs/Create">post a new job</a></div></li>
+                  }
+                  else
+                  {
+                    <li style="margin-top:0.5px"><div class="mydiv" style="margin-top:0.5px"><a href="~/home/GetJobsByUser"><p>jobs you have applied to</p></a></div></li>
+                  }
+                  <li style="margin-top:0.5px"><div class="mydiv" style="margin-top:0.5px"><a href="~/Account/EditProfile">Edit profile</a></div></li>
+                  <li style="margin-top:0.5px"><div class="mydiv" style="margin-top:0.5px"><a href="javascript:document.getElementById('logoff').submit()">Log out</a></div></li>
 
-            <li>
-                <a href="javascript:document.getElementById('logoff').submit()">
+              </ul>
 
-                    Deconnecter
-                </a>
-            </li>
+          </li>
+
+           
+            
+            
+            
+            
+            
+          
 
 
         </ul>

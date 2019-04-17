@@ -5,17 +5,19 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace esp.Models
 {
     public class Job
     {
         public int Id { get; set; }
-        [Required]
+        [Required (AllowEmptyStrings =false,ErrorMessage ="please provide job name")]
         [DisplayName("Job Name")]
         public string JobName { get; set; }
         [Required]
         [DisplayName("Description")]
+        [AllowHtml]
         public string JobDescription { get; set; }
         [Required]
         [DisplayName("workplace")]

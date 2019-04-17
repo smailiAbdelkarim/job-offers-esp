@@ -6,6 +6,7 @@
 }
 
 <h2 class="titres">Add job</h2>
+<script src="~/Scripts/ckeditor_4.11.4_standard/ckeditor/ckeditor.js"></script>
 <p>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -29,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.JobDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control",@id="JobDescription" } })
                 @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,3 +70,6 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+     <script>
+         CKEDITOR.replace("JobDescription");
+     </script>
